@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HelloComponent } from './hello.component';
+import { HelloComponent } from './message.component';
 
 @Component({
   selector: 'app-root',

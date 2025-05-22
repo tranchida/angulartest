@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Message } from './message';
 
 @Injectable({ providedIn: 'root'})
 export class MessageService {
@@ -8,7 +9,12 @@ export class MessageService {
 
   constructor(private http: HttpClient) { }
 
-  public GetRandomMessage() {
-    return this.http.get('/api/message')
+  public GetRandomMessage() : Observable<Message> {
+    return this.http.get<Message>('/api/message')
   }
+
+  public GetAllMessages() : Observable<Message[]> {
+    return this.http.get<Message[]>('/api/messages') 
+  }
+              
 }
