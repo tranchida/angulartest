@@ -3,7 +3,7 @@ import { MessageService } from "./message.service";
 import { Message } from "./message";
 
 @Component({
-  selector: "app-hello",
+  selector: "app-message",
   template: `
     <div class="text-center p-4 bg-blue-500 text-white">
         <div> {{message.id}} {{ message.message }} / {{ message.language }}</div>
@@ -20,14 +20,14 @@ import { Message } from "./message";
     </div>
   `,
 })
-export class HelloComponent {
+export class MessageComponent {
   message: Message = { id: 0, message: '', language: '' };
   messages: Message[] = [];
 
   constructor(private messageService: MessageService) { }
 
   change() {
-    this.messageService.GetRandomMessage().subscribe({
+    this.messageService.getRandomMessage().subscribe({
       next: (response: Message) => {
         this.message = response;
       },
@@ -39,7 +39,7 @@ export class HelloComponent {
   }
 
   list() {
-    this.messageService.GetAllMessages().subscribe({
+    this.messageService.getAllMessages().subscribe({
       next: (response: Message[]) => {
         this.messages = response;
       },

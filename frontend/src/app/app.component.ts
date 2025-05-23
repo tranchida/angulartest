@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { HelloComponent } from './message.component';
+import { MessageComponent } from './message/message.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HelloComponent],
+  imports: [MessageComponent],
   template: `
-      <app-hello/>
+      <app-message/>
   `,
 })
 

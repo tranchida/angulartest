@@ -9,11 +9,11 @@ export class MessageService {
 
   constructor(private http: HttpClient) { }
 
-  public GetRandomMessage() : Observable<Message> {
+  public getRandomMessage() : Observable<Message> {
     return this.http.get<Message>('/api/message')
   }
 
-  public GetAllMessages() : Observable<Message[]> {
+  public getAllMessages() : Observable<Message[]> {
     return this.http.get<Message[]>('/api/messages') 
   }
               
